@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/home_screen.dart';
+import 'package:news_app/theme/darkTheme.dart';
+import 'package:news_app/theme/lightThem.dart';
+import 'package:news_app/theme/theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
+// ignore: must_be_immutable
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  MyApp({super.key});
+  BaseTheme theme = LightTheme();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    BaseTheme darkTheme = DarkTheme();
+
     return MaterialApp(
+      theme: theme.themeData,
+      darkTheme: darkTheme.themeData,
+      themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.routeName,
       routes: {

@@ -8,7 +8,7 @@ static const String routeName = '/home';
     return Scaffold(
       appBar:AppBar(
         backgroundColor: Colors.blue,
-      title: const Text('Home Screen'),
+      title:  Text('Home Screen',style: Theme.of(context).textTheme.titleMedium,),
       centerTitle: true,
     ),
        body: Column(
