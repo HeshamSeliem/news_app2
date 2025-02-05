@@ -23,6 +23,7 @@ class DarkTheme extends BaseTheme{
         color: primaryColor,
         fontWeight: FontWeight.bold,
       ),
+      
     )
   );
 

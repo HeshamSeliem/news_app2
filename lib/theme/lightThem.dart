@@ -24,6 +24,11 @@ class LightTheme extends BaseTheme{
         color: primaryColor,
         fontWeight: FontWeight.bold,
       ),
+      titleLarge: TextStyle(
+        fontSize: 24,
+        color: primaryColor,
+        fontWeight: FontWeight.w700
+      )
     )
   );
 
