@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/api_impl_widget.dart';
+import 'package:news_app/app_drawer.dart';
 import 'package:news_app/categories_secssion.dart';
 import 'package:news_app/models/source_response.dart';
 import 'package:news_app/serves/api_manager.dart';
 
 // development branch
 class HomeScreen extends StatefulWidget {
-   HomeScreen({super.key});
+  HomeScreen({super.key});
   static const String routeName = '/home';
 
   @override
@@ -25,34 +26,21 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
       ),
-      drawer: Drawer(
-        backgroundColor: Color(0xff171717),
-        child: Column(
-          children: [
-            Container(
-              alignment: Alignment.center,
-              width: double.infinity,
-              height: 166,
-              color: const Color(0xffFFFFFF),
-              child: Text(
-                "News App",
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
+      drawer: AppDrawer(),
+      body: selectedCategory == null
+          ? CategoriesSecssion(
+              onTap: onCategoryClicked,
             )
-          ],
-        ),
-      ),
-      body: selectedCategory ==null ? CategoriesSecssion(onTap: onCategoryClicked,)
-      : ApiImplWidget(categoryname: selectedCategory!,),
+          : ApiImplWidget(
+              categoryname: selectedCategory!,
+            ),
     );
   }
 
-    String? selectedCategory = null;
+  String? selectedCategory = null;
 
-    onCategoryClicked(String category) {
-       selectedCategory = category;
-       setState(() {
-         
-       });
-}
+  onCategoryClicked(String category) {
+    selectedCategory = category;
+    setState(() {});
+  }
 }
