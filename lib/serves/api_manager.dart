@@ -6,13 +6,15 @@ import 'package:news_app/models/source_response.dart';
 
 class ApiManager{
 
-   static Future<SourceResponse> getSources()async{
+   static Future<SourceResponse> getSources({required String category})async{
     Uri url = Uri.https(
       "newsapi.org",
       "/v2/top-headlines/sources",
       {
-        "apiKey" : "93e0fe7b7a35497c86be4eb9608dbddb"
+        "apiKey" : "93e0fe7b7a35497c86be4eb9608dbddb",
+         "category": category
       }
+     
       );
     http.Response response= await http.get(url);   
     //response.body  now the response body is string but i want it as amap or json
@@ -24,7 +26,8 @@ class ApiManager{
     SourceResponse sourceResponse = SourceResponse.fromJson(json); // this line means that i took an object 
     //from the class of the nedded attributes
     return sourceResponse;// i want to return the object
-   }
+   }  
+   
 
     static Future<NewsDataResponse>getNewsData(String sourceId)
      async{
@@ -33,7 +36,8 @@ class ApiManager{
         "/v2/everything", 
          {
         "apiKey" : "93e0fe7b7a35497c86be4eb9608dbddb",
-        "sources": sourceId
+        "sources": sourceId,
+        
       } 
       );
       http.Response response = await http.get(url);
