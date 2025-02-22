@@ -57,6 +57,9 @@ class ApiImplWidget extends StatelessWidget {
                                 child: Text("error : ${snapshot.error}"));
                           } else {
                             var newsData = snapshot.data?.articles ?? [];
+                            if(newsData.isEmpty){
+                              return Center(child: Text("No Data Found",style: Theme.of(context).textTheme.titleMedium,));
+                            }
                             return ListView.builder(
                               itemCount: newsData.length,
                               itemBuilder: (context, index) {

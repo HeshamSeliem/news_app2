@@ -3,7 +3,8 @@ import 'package:news_app/home_screen.dart';
 import 'package:news_app/theme/darkTheme.dart';
 import 'package:news_app/theme/lightThem.dart';
 import 'package:news_app/theme/theme.dart';
-
+import 'package:news_app/web_view_screen.dart';
+// test commit
 void main() {
   runApp(MyApp());
 }
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName: (context) =>  HomeScreen(),
+       // WebViewApp.routeName: (context) =>  WebViewApp(),
       },
     );
   }
